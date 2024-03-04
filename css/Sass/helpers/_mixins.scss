@@ -1,0 +1,29 @@
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin circle($o) {
+  width: #{$o}px;
+  height: #{$o}px;
+  border-radius: 50%;
+}
+@mixin Screen_sizes($size) {
+  @if $size == mobile {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }@else if $size == small {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  }@else if $size == medium {
+    @media (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  }@else if $size == large {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
